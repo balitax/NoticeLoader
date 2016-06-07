@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'NoticeLoader_Example' do
+  pod 'NoticeLoader', :path => '../'
+
+  target 'NoticeLoader_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
