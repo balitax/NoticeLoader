@@ -7,18 +7,44 @@
 //
 
 import UIKit
-
+import NoticeLoader
 
 class ViewController: UIViewController {
-
+    
+    var noticeLoader = NoticeLoader()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func didTapLoader(sender: AnyObject) {
+        noticeLoader.pleaseWait()
     }
+    
+    @IBAction func didTapNoticeSuccess(sender: AnyObject) {
+        noticeLoader.noticeSuccess("Success", autoClear: true, autoClearTime: 2)
+    }
+    
+    @IBAction func didTapNoticeInfo(sender: AnyObject) {
+        noticeLoader.noticeInfo("Information", autoClear: true, autoClearTime: 2)
+    }
+    
+    @IBAction func didTapNoticeError(sender: AnyObject) {
+        noticeLoader.noticeError("Error", autoClear: true, autoClearTime: 2)
+    }
+    
+    @IBAction func didTapNoticeTop(sender: AnyObject) {
+        noticeLoader.noticeTop("THIS IS NOTICE ON TOP", autoClear: true, autoClearTime: 5)
+    }
+    
+    
+    @IBAction func didTapClearAllNotice(sender: AnyObject) {
+        noticeLoader.clearAllNotice()
+    }
+    
+    
+    
+
 
 }
 

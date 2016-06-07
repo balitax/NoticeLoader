@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="w77-wO-LsR">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Notice Alert-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="NoticeLoader_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,104 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yu2-qs-CiM">
+                                <rect key="frame" x="251" y="285" width="97" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="osw-7J-fZO"/>
+                                    <constraint firstAttribute="height" constant="30" id="qsl-Kq-mFe"/>
+                                </constraints>
+                                <state key="normal" title="Notice Loader"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="osw-7J-fZO"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="didTapLoader:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Fqy-pb-Tbb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lh-Wl-S2i">
+                                <rect key="frame" x="247" y="560" width="106" height="30"/>
+                                <state key="normal" title="Clear All Notice"/>
+                                <connections>
+                                    <action selector="didTapClearAllNotice:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cqE-gQ-jcb"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73P-ZX-kUq">
+                                <rect key="frame" x="246" y="325" width="107" height="30"/>
+                                <state key="normal" title="Notice Success"/>
+                                <connections>
+                                    <action selector="didTapNoticeSuccess:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kZZ-rX-ktn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ev-NX-YAn">
+                                <rect key="frame" x="262" y="245" width="75" height="30"/>
+                                <state key="normal" title="Notice Info"/>
+                                <connections>
+                                    <action selector="didTapNoticeInfo:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="cYf-6V-2Em"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lzc-PC-9oU">
+                                <rect key="frame" x="258" y="365" width="83" height="30"/>
+                                <state key="normal" title="Notice Error"/>
+                                <connections>
+                                    <action selector="didTapNoticeError:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Vxe-Re-ZS2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0E0-HT-czd">
+                                <rect key="frame" x="262" y="205" width="75" height="30"/>
+                                <state key="normal" title="Notice Top"/>
+                                <connections>
+                                    <action selector="didTapNoticeTop:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vyU-43-jXB"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="yu2-qs-CiM" firstAttribute="centerY" secondItem="kh9-bI-dsS" secondAttribute="centerY" id="2XI-js-792"/>
+                            <constraint firstItem="yu2-qs-CiM" firstAttribute="top" secondItem="2Ev-NX-YAn" secondAttribute="bottom" constant="10" id="5PB-cw-Jta"/>
+                            <constraint firstItem="2Ev-NX-YAn" firstAttribute="top" secondItem="0E0-HT-czd" secondAttribute="bottom" constant="10" id="Dma-Yr-cic"/>
+                            <constraint firstItem="73P-ZX-kUq" firstAttribute="centerX" secondItem="yu2-qs-CiM" secondAttribute="centerX" id="QyG-63-IsC"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="1lh-Wl-S2i" secondAttribute="bottom" constant="10" id="SoG-4Y-Mhi"/>
+                            <constraint firstItem="1lh-Wl-S2i" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="aMI-DM-5c4"/>
+                            <constraint firstItem="Lzc-PC-9oU" firstAttribute="centerX" secondItem="73P-ZX-kUq" secondAttribute="centerX" id="coI-dR-Mec"/>
+                            <constraint firstItem="2Ev-NX-YAn" firstAttribute="centerX" secondItem="yu2-qs-CiM" secondAttribute="centerX" id="eak-rf-HDa"/>
+                            <constraint firstItem="2Ev-NX-YAn" firstAttribute="bottom" secondItem="yu2-qs-CiM" secondAttribute="bottom" id="jip-FN-4P3"/>
+                            <constraint firstItem="0E0-HT-czd" firstAttribute="centerX" secondItem="2Ev-NX-YAn" secondAttribute="centerX" id="r06-YY-7D0"/>
+                            <constraint firstItem="Lzc-PC-9oU" firstAttribute="top" secondItem="73P-ZX-kUq" secondAttribute="bottom" constant="10" id="t0X-s2-E6q"/>
+                            <constraint firstItem="yu2-qs-CiM" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="vuO-en-IeE"/>
+                            <constraint firstItem="73P-ZX-kUq" firstAttribute="top" secondItem="yu2-qs-CiM" secondAttribute="bottom" constant="10" id="wzJ-Ax-oLW"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="jip-FN-4P3"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Notice Alert" id="duv-cL-u8M"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1076" y="-389"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PgF-jx-9Ea">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="w77-wO-LsR" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="OhI-YB-7Ik">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="eZ3-cV-kZ9"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZa-UF-Ppk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="279" y="-389"/>
         </scene>
     </scenes>
 </document>

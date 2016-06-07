@@ -1,63 +1,123 @@
 //
-//  SwiftNotice.swift
-//  SwiftNotice
+//  NoticeLoader.swift
+//  NoticeLoader
 //
 //  Created by JohnLui on 15/4/15.
 //  Copyright (c) 2015年 com.lvwenhan. All rights reserved.
+//  Pod by Agus Cahyono
+//  cahyo.mamen@gmail.com
+//  http://github.com/balitax
 //
 
 import Foundation
 import UIKit
 
-class NoticeLoader {
-    /// wait with your own animated images
-    func pleaseWaitWithImages(imageNames: Array<UIImage>, timeInterval: Int) {
+public class NoticeLoader: UIViewController {
+    
+    /**
+     Please wait loader with custom images
+     
+     - parameter imageNames:   image name
+     - parameter timeInterval: time loader
+     */
+    public func pleaseWaitWithImages(imageNames: Array<UIImage>, timeInterval: Int) {
         SwiftNotice.wait(imageNames, timeInterval: timeInterval)
     }
+    
+    /**
+     Notice Position On Top
+     
+     - parameter text:          Text alert notice
+     - parameter autoClear:     Bool auto clear
+     - parameter autoClearTime: time interval notice
+     */
     // api changed from v3.3
-    func noticeTop(text: String, autoClear: Bool = true, autoClearTime: Int = 1) {
+    public func noticeTop(text: String, autoClear: Bool = true, autoClearTime: Int = 1) {
         SwiftNotice.noticeOnStatusBar(text, autoClear: autoClear, autoClearTime: autoClearTime)
     }
     
+    /**
+     Notice Success
+     
+     - parameter text:          text success
+     - parameter autoClear:     Bool auto clear
+     - parameter autoClearTime: time interval notice
+     */
     // new apis from v3.3
-    func noticeSuccess(text: String, autoClear: Bool = false, autoClearTime: Int = 3) {
+    public func noticeSuccess(text: String, autoClear: Bool = false, autoClearTime: Int = 3) {
         SwiftNotice.showNoticeWithText(NoticeType.success, text: text, autoClear: autoClear, autoClearTime: autoClearTime)
     }
-    func noticeError(text: String, autoClear: Bool = false, autoClearTime: Int = 3) {
+    
+    /**
+     Notice Error
+     
+     - parameter text:          text error
+     - parameter autoClear:     Bool auto clear
+     - parameter autoClearTime: time interval notice
+     */
+    public func noticeError(text: String, autoClear: Bool = false, autoClearTime: Int = 3) {
         SwiftNotice.showNoticeWithText(NoticeType.error, text: text, autoClear: autoClear, autoClearTime: autoClearTime)
     }
-    func noticeInfo(text: String, autoClear: Bool = false, autoClearTime: Int = 3) {
+    
+    /**
+     Notice Info
+     
+     - parameter text:          text error
+     - parameter autoClear:     Bool auto clear
+     - parameter autoClearTime: time interval notice
+     */
+    public func noticeInfo(text: String, autoClear: Bool = false, autoClearTime: Int = 3) {
         SwiftNotice.showNoticeWithText(NoticeType.info, text: text, autoClear: autoClear, autoClearTime: autoClearTime)
     }
+    
     
     // old apis
     func successNotice(text: String, autoClear: Bool = true) {
         SwiftNotice.showNoticeWithText(NoticeType.success, text: text, autoClear: autoClear, autoClearTime: 3)
     }
+    
     func errorNotice(text: String, autoClear: Bool = true) {
         SwiftNotice.showNoticeWithText(NoticeType.error, text: text, autoClear: autoClear, autoClearTime: 3)
     }
+    
     func infoNotice(text: String, autoClear: Bool = true) {
         SwiftNotice.showNoticeWithText(NoticeType.info, text: text, autoClear: autoClear, autoClearTime: 3)
     }
+    
     func notice(text: String, type: NoticeType, autoClear: Bool, autoClearTime: Int = 3) {
         SwiftNotice.showNoticeWithText(type, text: text, autoClear: autoClear, autoClearTime: autoClearTime)
     }
-    func pleaseWait() {
+    
+    /**
+     Notice loader wait...
+     */
+    public func pleaseWait() {
         SwiftNotice.wait()
     }
-    func noticeOnlyText(text: String) {
+    
+    /**
+     Notice with text only
+     
+     - parameter text: <#text description#>
+     */
+    public func noticeOnlyText(text: String) {
         SwiftNotice.showText(text)
     }
-    func clearAllNotice() {
+    
+    /**
+     Clear all notification
+     */
+    public func clearAllNotice() {
         SwiftNotice.clear()
     }
 }
 
 enum NoticeType{
+    
     case success
     case error
     case info
+    
 }
 
 class SwiftNotice: NSObject {
@@ -66,11 +126,13 @@ class SwiftNotice: NSObject {
     static let rv = UIApplication.sharedApplication().keyWindow?.subviews.first as UIView!
     static var timer: dispatch_source_t!
     static var timerTimes = 0
+    
     static var degree: Double {
         get {
             return [0, 0, 180, 270, 90][UIApplication.sharedApplication().statusBarOrientation.hashValue] as Double
         }
     }
+    
     static var center: CGPoint {
         get {
             var array = [UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height]
