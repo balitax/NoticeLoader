@@ -1,0 +1,16 @@
+PODS:
+  - NoticeLoader (0.1.0)
+
+DEPENDENCIES:
+  - NoticeLoader (from `../`)
+
+EXTERNAL SOURCES:
+  NoticeLoader:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  NoticeLoader: d9e4d6e9fd1736159097e970544022b931d88ddd
+
+PODFILE CHECKSUM: 77502d4ef1745148e571609aff464938f0df3783
+
+COCOAPODS: 1.0.0
